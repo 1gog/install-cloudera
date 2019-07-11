@@ -32,3 +32,13 @@ yum update -y
 ```bash
 yum install -y java-1.8.0-openjdk
 ```
+
+### get repo for you system
+https://www.cloudera.com/documentation/enterprise/release-notes/topics/cm_vd.html
+
+
+```bash
+cd /etc/yum.repos.d/
+wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/cloudera-manager.repo
+```
+
