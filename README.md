@@ -5,7 +5,6 @@
 
 
 ### stage
-
 ```bash
 cat <<EOF >> /etc/hosts
 21.0.1.26 cdh-name.stage.dev
@@ -25,6 +24,10 @@ firewall-cmd --permanent --zone=public --add-port=22/tcp
 firewall-cmd --reload
 ```
 
+# update system
+```bash
+yum update -y
+```
 ### install java jdk
 ```bash
 yum install -y java-1.8.0-openjdk
