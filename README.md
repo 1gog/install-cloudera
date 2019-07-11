@@ -58,6 +58,19 @@ yum install -y cloudera-manager-daemons cloudera-manager-server cloudera-manager
 yum install -y cloudera-manager-daemons cloudera-manager-agent
 ```
 
+### start service cloudera-manager-server on host cdh-name.stage.dev
+```bash
+systemctl enable cloudera-scm-server 
+systemctl start cloudera-scm-server
+```
+
+### start service cloudera-manager-agent on host cdh-node-01.stage.dev, cdh-node-02.stage.dev
+```bash
+systemctl enable cloudera-scm-agent
+systemctl start cloudera-scm-agent
+```
+
+
 
 
 
