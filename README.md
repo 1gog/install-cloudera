@@ -7,7 +7,7 @@
 ### stage
 
 ```bash
-cat <EOF >> /etc/hosts
+cat <<EOF >> /etc/hosts
 21.0.1.26 cdh-name.stage.dev
 21.0.1.27 cdh-node-01.stage.dev
 21.0.1.28 cdh-node-02.stage.dev
