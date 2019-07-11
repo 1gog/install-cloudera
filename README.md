@@ -50,12 +50,12 @@ yum repolist
 
 ### install cloudera manager server package on host cdh-name.stage.dev 
 ```bash
-yum install cloudera-manager-daemons cloudera-manager-server
+yum install -y cloudera-manager-daemons cloudera-manager-server cloudera-manager-agent
 ```
 
-### install on all host (cdh-name, cdh-node-01, cdh-node-02) 
+### install on all host (cdh-node-01, cdh-node-02) 
 ```bash
-yum install cloudera-manager-daemons cloudera-manager-agent
+yum install -y cloudera-manager-daemons cloudera-manager-agent
 ```
 
 
