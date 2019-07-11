@@ -48,3 +48,16 @@ wget https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/cloudera-manager.repo
 yum repolist
 ```
 
+### install cloudera manager server package on host cdh-name.stage.dev 
+```bash
+yum install cloudera-manager-daemons cloudera-manager-server
+```
+
+### install on all host (cdh-name, cdh-node-01, cdh-node-02) 
+```bash
+yum install cloudera-manager-daemons cloudera-manager-agent
+```
+
+
+
+
