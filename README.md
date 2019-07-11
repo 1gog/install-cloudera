@@ -90,7 +90,7 @@ shared_buffers = 256MB
 
 #### add access from network
 ```
-echo 'host   *  cloudera  21.0.1.0/24  md5' >> /var/lib/pgsql/data/pg_hba.conf
+echo 'host   all  cloudera  21.0.1.0/24  md5' >> /var/lib/pgsql/data/pg_hba.conf
 ```
 
 #### restart postgresql
@@ -118,7 +118,26 @@ create database cloudera;
 grant all privileges on database cloudera to cloudera;
 ```
 
+#### download jar for postgres
+```
+cd /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre/lib
+wget https://jdbc.postgresql.org/download/postgresql-42.2.6.jar
+```
 
+#### edit db properties 
+```
+vi /etc/cloudera-scm-server/db.properties
+```
+
+
+#### replace
+```
+com.cloudera.cmf.db.type=postgresql
+com.cloudera.cmf.db.host=21.0.1.26
+com.cloudera.cmf.db.name=cloudera
+com.cloudera.cmf.db.user=cloudera
+com.cloudera.cmf.db.password=mypass
+```
 
 
 
