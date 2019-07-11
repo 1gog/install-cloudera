@@ -58,6 +58,84 @@ yum install -y cloudera-manager-daemons cloudera-manager-server cloudera-manager
 yum install -y cloudera-manager-daemons cloudera-manager-agent
 ```
 
+
+
+### install and init postgres
+```bash
+yum install -y postgresql-server
+su -l postgres 
+initdb
+exit
+```
+
+### start serice 
+```bash
+systemctl start postgresql
+```
+
+### configure postgresql
+```bash
+vi /var/lib/pgsql/data/postgresql.conf
+```
+
+#### find listen_addresses and replace to
+```
+listen_addresses='*'
+```
+
+#### find shared_buffers  and replace to
+```
+shared_buffers = 256MB
+```
+
+#### add access from network
+```
+echo 'host   *  cloudera  21.0.1.0/24  md5' >> /var/lib/pgsql/data/pg_hba.conf
+```
+
+#### restart postgresql
+```
+systemctl restart postgresql
+```
+
+#### login to postgresql as admin
+```
+su -l postgres
+psql
+```
+
+#### create user cloudera
+```
+create user cloudera with encrypted password 'mypass';
+```
+#### create database 
+```
+create database cloudera;
+```
+
+#### grant privileged 
+```
+grant all privileges on database cloudera to cloudera;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### install postgresql jdbc 
+https://jdbc.postgresql.org/
+
+
 ### start service cloudera-manager-server on host cdh-name.stage.dev
 ```bash
 systemctl enable cloudera-scm-server 
