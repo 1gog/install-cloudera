@@ -23,6 +23,13 @@ cdh-node-02.stage.dev
 firewall-cmd --permanent --zone=public --add-port=22/tcp
 firewall-cmd --reload
 ```
+#### for cloudera cdh-name.stage.dev
+```
+firewall-cmd --permanent --add-port=7180/tcp --zone=public
+firewall-cmd --reload
+```
+
+
 
 # update system
 ```bash
@@ -118,9 +125,23 @@ create database cloudera;
 grant all privileges on database cloudera to cloudera;
 ```
 
+
+#### for sqoop
+```
+CREATE ROLE sqoop LOGIN ENCRYPTED PASSWORD 'sqoop' NOSUPERUSER INHERIT CREATEDB NOCREATEROLE;
+```
+#### create database
+```
+CREATE DATABASE "sqoop" WITH OWNER = sqoop ENCODING = 'UTF8'
+ TABLESPACE = pg_default
+ LC_COLLATE = 'en_US.UTF8'
+ LC_CTYPE = 'en_US.UTF8'
+ CONNECTION LIMIT = -1;
+```
+
 #### download jar for postgres
 ```
-cd /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre/lib
+cd /usr/lib/java-ext
 wget https://jdbc.postgresql.org/download/postgresql-42.2.6.jar
 ```
 
@@ -151,8 +172,6 @@ com.cloudera.cmf.db.password=mypass
 
 
 
-### install postgresql jdbc 
-https://jdbc.postgresql.org/
 
 
 ### start service cloudera-manager-server on host cdh-name.stage.dev
